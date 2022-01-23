@@ -75,18 +75,19 @@ def scraper():
     df = pd.DataFrame(data)
     df = df.sort_values(by=['Amount BTC'], ascending = False)
     df = df.head(10)
-    print(df)
-    arr = df.columns
-    mydict = {}
-
-    lista = df.stack().tolist()
-    for x in range(len(lista)):
-        mydict[arr[x]] = lista[x]
-    
-    x = mycol.insert_one(mydict)  
-    x = mycol.insert_one
+    df
+  
+     for x in hash:
+        r.lpush('hash', x)
+    for x in time:
+        r.lpush('time', x)
+    for x in amountbtc:
+        r.lpush('btc', x)
+    for x in amountusd:
+        r.lpush('usd', x)
     
 while True:
+    r.flushall()
     scraper()
     parser()
     time.sleep(60)
